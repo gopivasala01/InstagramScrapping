@@ -130,9 +130,10 @@
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-examples-5.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-excelant-5.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-javadoc-5.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-ooxml-5.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-ooxml-5.2.2.jar" sourcepath="/PowerBIReportSubscriptions"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-ooxml-full-5.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-ooxml-lite-5.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-scratchpad-5.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Gopi/Automation/PDF jars/pdfbox-app-3.0.0-alpha3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.CharMatcher;
 
-public class RunnerClass 
+public class ExcelReadAndWriteSample 
 {
 	static	ChromeDriver driver;
 	static Actions actions;
@@ -41,14 +41,14 @@ public class RunnerClass
 	static boolean flagToCheckUserLoginTime = false;
 	static String loggedInTimeInSheet;
 	static boolean flagToCheckLoginForFirstTimeOrRepeatedUser;
-	RunnerClass()
+	ExcelReadAndWriteSample()
 	{
 		System.setProperty(AppConfig.browserType,AppConfig.browserPath);
 		driver = new ChromeDriver();
 		js = (JavascriptExecutor)driver;
 		actions = new Actions(driver);
 		//wait = new WebDriverWait(driver,100);
-		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		
 		
 	}
@@ -88,7 +88,6 @@ public class RunnerClass
 	    FileInputStream outputFIS = new FileInputStream(outputFile);
 	    XSSFWorkbook outputWorkbook = new XSSFWorkbook(outputFIS);
 	    XSSFSheet outputSheet = outputWorkbook.getSheetAt(0);
-	    try {
 	    for(int i =0;i<InputSheet.getLastRowNum();i++)
 	    {
 	    Row InputRow= InputSheet.getRow(i+1);
@@ -98,21 +97,63 @@ public class RunnerClass
 	    Cell Cell_followingCount = outputRow.createCell(2);
 	    Cell Cell_URL = outputRow.createCell(3);
 	    String pageName = InputRow.getCell(0).toString();
-	    actions.click(driver.findElement(Locators.searchBox)).sendKeys((pageName)).build().perform();
-	    try
-	    {
+	    actions.click(driver.findElement(Locators.searchBox)).sendKeys(("jtbarnett")).build().perform();
 	    driver.findElement(Locators.selectingPageFromList).click();
-	    }
-	    catch(Exception e)
-	    {
-	    	continue;
-	    }
-	   
-        //driver.findElement(Locators.followersCount).click();
+        driver.findElement(Locators.followersCount).click();
         String followersCountRaw = driver.findElement(Locators.followersCount).getText();
         String theDigits =null;
-      
-	    String pageID;
+        int followersCount =0;
+        if(followersCountRaw.contains("k"))
+        {
+        	theDigits = CharMatcher.inRange('0', '9').retainFrom(followersCountRaw); // 123
+        	followersCount = Integer.parseInt(theDigits);
+        	 followersCount = followersCount*100;
+        }
+        ArrayList<String> list = new ArrayList<String>();
+        List<WebElement> followers = driver.findElements(Locators.followersList);
+        int size = followers.size();
+       // int followersCount = Integer.parseInt(theDigits);
+        for(int j=0;j<followers.size();j++)
+        {
+           String text = followers.get(j).getText();
+           System.out.println(text);
+           list.add(text);
+           if(followers.size()==(j+1))
+           {
+        	   //driver.findElement(By.xpath("//*[@class='isgrP']")).click();
+        	   //js.executeScript("arguments[0].scrollTop = arguments[1];",driver.findElement(By.xpath("//*[@class='isgrP']")), 100);
+        	   //js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        	   driver.findElement(By.xpath("//*[@class='isgrP']")).click();
+        	   actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
+        	   js.executeScript("arguments[0].scrollIntoView();", followers.get(j));
+        	   //actions.moveToElement(followers.get(j)).build().perform();
+        	   actions.moveToElement( driver.findElement(By.xpath("//*[@class='isgrP']"))).build().perform();
+        	   Thread.sleep(2000);
+        	   j=followers.size()-1;
+        	   followers = driver.findElements(Locators.followersList);
+        	   size = followers.size();
+           }
+        }
+        System.out.println(list.size());
+        XSSFSheet outputSheet2 = outputWorkbook.getSheetAt(1);
+        for(int k=0;k<list.size();k++)
+        {
+        	Row row = outputSheet2.createRow(outputSheet2.getLastRowNum()+1);
+        	Cell accountName = row.createCell(0);
+        	accountName.setCellValue(pageName);
+        	Cell followerPageName = row.createCell(1);
+        	followerPageName.setCellValue(list.get(k));
+        }
+        FileOutputStream fos = new FileOutputStream(outputFile);
+	    FileOutputStream fos2 = new FileOutputStream(file);
+	    outputWorkbook.write(fos);
+	    InputWorkbook.write(fos2);
+	    fis.close();
+	    outputFIS.close();
+	    fos.close();
+	    fos2.close();
+        break;
+	    /*String pageID;
 	    try
 	    {
 	    pageID  = driver.findElement(Locators.pageID).getText();
@@ -162,29 +203,10 @@ public class RunnerClass
 	    driver.navigate().to(AppConfig.instagramURL);
 	    System.out.println("------------------");
 	    Thread.sleep(2000);
-	    }
-	    fis.close();
-	    FileOutputStream fos = new FileOutputStream(outputFile);
-	    FileOutputStream fos2 = new FileOutputStream(file);
-	    outputWorkbook.write(fos);
-	    InputWorkbook.write(fos2);
-	    fis.close();
-	    outputFIS.close();
-	    fos.close();
-	    fos2.close();
-	    }
-	    catch(Exception e)
-	    {
-	    	fis.close();
-		    FileOutputStream fos = new FileOutputStream(outputFile);
-		    FileOutputStream fos2 = new FileOutputStream(file);
-		    outputWorkbook.write(fos);
-		    InputWorkbook.write(fos2);
-		    fis.close();
-		    outputFIS.close();
-		    fos.close();
-		    fos2.close();
-	    }
+	    
+	    }*/}
+	    //fis.close();
+	  
 	    }
 	}
 

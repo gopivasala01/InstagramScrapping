@@ -1,0 +1,19 @@
+package leasecloseouts;
+
+import org.openqa.selenium.By;
+
+public class Locators 
+{
+	public static By userName = By.id("loginEmail");
+	public static By password = By.name("password");
+	public static By signMeIn = By.xpath("//*[@value='Sign Me In']");
+	
+	public static By searchbox = By.name("eqsSearchText");
+	public static By searchingLoader = By.xpath("//*[@id='eqsResult']/h1");
+    public static By leasesTab = By.xpath("//*[@class='tabbedSection']/a[4]");	
+    public static By leaseStartDate_PW = By.xpath("//*[@id='infoTable']/tbody/tr[3]/td[1]");
+    public static By leaseEndDate_PW = By.xpath("//*[@id='infoTable']/tbody/tr[3]/td[2]");
+    public static By notesAndDocs = By.id("notesAndDocuments");
+    public static By documentsList = By.xpath("//*[@id='documentHolderBody']/tr/td[1]/a"); 
+
+}
