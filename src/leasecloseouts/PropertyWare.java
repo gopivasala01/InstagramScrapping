@@ -19,8 +19,8 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 public class PropertyWare 
 {
-    static String leaseName = "TAYL2790 - (2790 TAYLOR HILL DR)_5895";
-    static String leaseOwner = "Bass - Bass";
+    static String leaseName = "31ST7116 - (7116 N 31ST DR)_7406";
+    static String leaseOwner = "Nelson - Jones";
 	public void login()
 	{
 		RunnerClass.driver.get(AppConfig.propertyWareURL);
@@ -32,6 +32,7 @@ public class PropertyWare
 	
 	public void selectLease()
 	{
+		RunnerClass.driver.findElement(Locators.dashboardsTab).click();
 		RunnerClass.driver.findElement(Locators.searchbox).sendKeys(leaseName);
 		RunnerClass.wait.until(ExpectedConditions.invisibilityOf(RunnerClass.driver.findElement(Locators.searchingLoader)));
 		RunnerClass.driver.findElement(By.partialLinkText(leaseName)).click();
@@ -51,7 +52,7 @@ public class PropertyWare
 		List<WebElement> documents = RunnerClass.driver.findElements(Locators.documentsList);
 		for(int i =0;i<documents.size();i++)
 		{
-			if(documents.get(i).getText().contains(leaseFirstName))
+			if(documents.get(i).getText().contains("Lease"))
 			{
 				documents.get(i).click();
 				break;

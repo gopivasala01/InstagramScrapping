@@ -135,5 +135,6 @@
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-ooxml-lite-5.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/Apache jar files/poi-bin-5.2.2-20220312 (1)/poi-bin-5.2.2/poi-scratchpad-5.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Gopi/Automation/PDF jars/pdfbox-app-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Gopi/Automation/Spire.Pdf.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

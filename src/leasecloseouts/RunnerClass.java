@@ -14,6 +14,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import CompanyWisePDFDataScrap.Arizona;
+
 public class RunnerClass 
 {
 	static	ChromeDriver driver;
@@ -59,10 +61,14 @@ public class RunnerClass
 		propertyWareObject.login();
 		propertyWareObject.selectLease();
 		propertyWareObject.validateSelectedLease();
-		//Thread.sleep(10000);
+		Thread.sleep(10000);
 		// Get data from PDF
-		pdfDataScrapperObject = new PDFDataScrapping();
-		pdfDataScrapperObject.getDataFromPDF();
+		//pdfDataScrapperObject = new PDFDataScrapping();
+		//pdfDataScrapperObject.getDataFromPDF();
+		Arizona arizona = new Arizona();
+		arizona.arizona();
+		PropertyWare_InsertLeaseInfo insertLeaseInfo = new PropertyWare_InsertLeaseInfo();
+		insertLeaseInfo.insertData();
 		
 
 	}
