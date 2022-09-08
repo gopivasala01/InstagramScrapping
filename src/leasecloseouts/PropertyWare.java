@@ -21,6 +21,22 @@ public class PropertyWare
 {
     static String leaseName = "31ST7116 - (7116 N 31ST DR)_7406";
     static String leaseOwner = "Nelson - Jones";
+    public static String commensementDate;
+    public static String expirationDate;
+    public static String proratedRent;
+    public static String proratedRentDate;
+    public static String monthlyRent;
+    public static String monthlyRentDate;
+    public static String adminFee;
+    public static String airFilterFee;
+    public static String earlyTermiantion;
+    public static String occupants;
+    public static String lateChargeDay;
+    public static String lateChargeFee;
+    public static String proratedPetRent;
+    public static String proratedPetRentDate;
+    public static String petSecurityDeposit;
+    
 	public void login()
 	{
 		RunnerClass.driver.get(AppConfig.propertyWareURL);
@@ -59,7 +75,7 @@ public class PropertyWare
 			}
 		}
 		
-
+		Thread.sleep(15000);
 		File file = PropertyWare.getLastModified();
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(RunnerClass.driver).withTimeout(Duration.ofSeconds(25)).pollingEvery(Duration.ofMillis(100));
 		wait.until( x -> file.exists());
@@ -115,7 +131,71 @@ public class PropertyWare
 
 	    return chosenFile;
 	}
-	
+	public static String convertDate(String date)
+	{
+		String[] d = date.trim().split(" ");
+		String month = PropertyWare.convertMonth(d[0].trim());
+		String[] yearAndDate = date.trim().split(",");
+		String dateIn = month +"/"+ yearAndDate[0].split(" ")[1].trim()+"/"+yearAndDate[1].trim();
+		System.out.println(dateIn);
+		return dateIn;
+				
+	}
+	public static String convertMonth(String month)
+	{
+		switch (month) {
+		  case "January":
+		    month =  "01";
+		    break;
+		  case "February":
+			  month = "02";
+			  break;
+		  case "March":
+			  month = "03";
+			  break;
+		  case "April":
+			  month =  "04"; 
+			  break;
+		  case "May":
+			  month =  "05";
+			  break;
+		  case "June":
+			  month =  "06";
+			  break;
+		  case "July":
+			  month =  "07";
+			  break;
+		  case "August":
+			  month =  "08";
+			  break;
+		  case "September":
+			  month =  "09";
+			  break;
+		  case "October":
+			  month =  "10";
+			  break;
+		  case "November":
+			  month =  "11";
+			  break;
+		  case "December":
+			  month =  "12";
+			  break;
+		               }
+          return month;		
+	}
+
+		   public static boolean onlyDigits(String str)
+		    {
+		        for (int i = 0; i < str.length(); i++) 
+		        {
+		            if (Character.isDigit(str.charAt(i))) 
+		            {
+		                return true;
+		            }
+		        }
+		        return false;
+		    }
+		 
 	
 	
 	

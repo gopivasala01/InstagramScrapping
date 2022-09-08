@@ -19,6 +19,12 @@ public class AppConfig
 	static String AZ_fullRent_Prior = "Tenant will pay Landlord monthly rent in the amount of";
 	static String AZ_fullRent_After = "per month, plus applicable";
 	
+	static String AZ_fullRentDate_Prior = "*The first full month’s rent is due and payable not later \r\n"
+			+ "than ";
+	static String AZ_fullRentDate_After = ". \r\n"
+			+ " \r\n"
+			+ "Thereafter, Tenant will pay the monthly rent";
+	
 	static String AZ_adminFee_Prior = "An annual lease preparation fee in the amount of $";
 	static String AZ_adminFee_After = "prior to the Commencement Date of this lease";
 	
@@ -40,6 +46,18 @@ public class AppConfig
 	static String AZ_airFilterFee_Prior = "HVAC Filter Maintenance Program Fee \r\n"
 			+ "of $";
 	static String AZ_airFilterFee_After = "per month (“HVAC Program Fee”)";
+	
+	static String AZ_petAgreementAvailabilityCheck = "PET AUTHORIZATION AND PET DESCRIPTION:";
+	
+	static String AZ_petFeeOneTime_Prior = "Tenant will, upon execution of this agreement, pay Landlord $";
+	static String AZ_petFeeOneTime_After = " as a one-time, non-refundable  \r\n"
+			+ "payment.";
+	
+	static String AZ_securityDeposity_Prior = "On or before the date Tenant moves into the Property, Tenant will pay Landlord an additional  \r\n"
+			+ "deposit of $";
+	static String AZ_securityDeposity_After = ". The additional deposit is an increase in the security deposit in the lease";
+	
+	
 	
 	
 	

@@ -18,7 +18,7 @@ public class Alabama
 		FileInputStream fis = new FileInputStream(file);
 		PDDocument document = PDDocument.load(fis);
 	    String text = new PDFTextStripper().getText(document);
-	     System.out.println(text);
+	    System.out.println(text);
 	    System.out.println("------------------------------------------------------------------");
 	   // String dates = text.substring(text.indexOf("Commencement Date"), )
 	    

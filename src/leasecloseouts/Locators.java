@@ -20,5 +20,14 @@ public class Locators
     public static By ledgerTab = By.id("tab2");
     public static By newCharge = By.xpath("//*[@value='New Charge']");
     public static By accountDropdown = By.name("charge.GLAccountID");
+    public static By accountList = By.xpath("//*[@id='oneTimeGLAccountID']/optgroup/option");
+    public static By referenceName = By.name("charge.refNo");
+    public static By moveInChargeAmount = By.name("charge.editAmountAsString");
+    public static By moveInChargeDate = By.name("charge.dateAsString");
+    public static By moveInChargeSave = By.xpath("//*[@value='Save']");
+    public static By moveInChargeCancel = By.xpath("//*[@value='Cancel']");
+    
+    
+    
 
 }

@@ -62,9 +62,7 @@ public class RunnerClass
 		propertyWareObject.selectLease();
 		propertyWareObject.validateSelectedLease();
 		Thread.sleep(10000);
-		// Get data from PDF
-		//pdfDataScrapperObject = new PDFDataScrapping();
-		//pdfDataScrapperObject.getDataFromPDF();
+		// ********Get data from PDF*********
 		Arizona arizona = new Arizona();
 		arizona.arizona();
 		PropertyWare_InsertLeaseInfo insertLeaseInfo = new PropertyWare_InsertLeaseInfo();
